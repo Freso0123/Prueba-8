@@ -36,10 +36,14 @@ padding: .5rem;
 
 .borrar button{
     background-color: var(--blanco);
-    padding: .1rem .7rem .1rem .7rem;
-    margin-top: 1rem;
+    padding: .1rem .09rem;
+    margin-top: 1.4rem;
     border-radius: .6rem;
     /*width: 1.5rem;*/
+}
+
+.borrar svg{
+    height: 2.4rem;
 }
 
 .borrar{
