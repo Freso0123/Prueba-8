@@ -1,0 +1,46 @@
+:root{
+    --blanco: #FFFFFF;
+    --blanco2: #FFFFFFE0;
+    --Azul_ft: #009CB8;
+    --Azul_ft2: #009cb8e0;
+    --negro:#000000 ;
+    --Naranga_ft: #F66A14;
+}
+
+.titulo{
+    background-color: var(--blanco2);
+    color: var(--Naranga_ft);
+    text-align: center;
+    height: 27px;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+
+
+.text_box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--Azul_ft2);
+    padding: 20px;
+    border: 1px solid var(--negro) ;
+    border-radius: 2rem;
+    display: none;
+  }
+  
+.chat{
+    background-color: var(--blanco2);
+    width: 15rem;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 2px;
+  }
+
+#enviar{
+    margin-top: 1rem;
+    background-color: var(--blanco);
+    color: var(--Azul_ft);
+}

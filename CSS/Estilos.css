@@ -1,0 +1,139 @@
+:root{
+    --blanco: #FFFFFF;
+    --Azul_ft: #009CB8;
+    --Naranga: #FFCDAF;
+    --Azul_cl: #C5F6FF;
+    --Amarillo: #FFF0B4;
+    --Naranga_ft: #F66A14;
+
+}
+
+html{
+    font-size: 1rem;
+    background: var(--gris_claro);
+    background-color: var(--blanco);
+}
+
+body{
+    font-family: "Noto Sans", sans-serif;
+  }
+
+
+
+/*///////////////////////////////////////////////////////////*/
+
+
+.box1{
+background-color: var(--Azul_ft);
+display: flex;
+padding: .5rem;
+}
+
+.titulo1{
+    padding: .5rem;
+    color: var(--blanco);
+}
+
+.borrar button{
+    background-color: var(--blanco);
+    padding: .1rem .7rem .1rem .7rem;
+    margin-top: 1rem;
+    border-radius: .6rem;
+    /*width: 1.5rem;*/
+}
+
+.borrar{
+    position: absolute;
+    right: 20px;
+}
+
+
+
+/*///////////////////////////////////////////////////////////*/
+
+
+
+.box2{
+    padding: 1rem;
+}
+
+.titulo2 h2{
+    margin-bottom: -1px;
+}
+
+.subox{
+    display: flex;
+    background-color: var(--Azul_cl);
+    border-radius: 1rem;
+    padding: 10px;
+}
+
+.text1{
+    display: flex;
+    align-items: center;
+}
+
+.check{
+    margin: 0 auto;
+    height: 2rem;
+}
+/*--------------------------------*/
+
+.text2{
+    display: flex;
+    background-color: var(--Naranga);
+    border-radius: 1rem;
+    padding: 10px;
+}
+
+/*--------------------------------*/
+
+.text3{
+    display: flex;
+    background-color: var(--Amarillo);
+    border-radius: 1rem;
+    padding: 10px;
+}
+
+/*--------------------------------*/
+
+.text1 input,
+.text2 input,
+.text3 input {
+  margin-left: 0.5rem;
+  width: 5rem;
+}
+
+.text1 p,
+.text2 p,
+.text3 p {
+  text-align: justify;
+  margin-left: 1rem;
+}
+
+
+/*///////////////////////////////////////////////////////////*/
+
+
+/*.mas SVG{
+    background-color: var(--Naranga_ft);
+    width: 40px;
+    margin-left: 20rem;
+    padding: 10px 12px 10px 12px;
+    border-radius: 1rem;
+}*/
+
+.mas{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.mas button{
+    /*background-color: transparent;*/
+    background-color: var(--Naranga_ft);
+    /*width: 40px;*/
+    /*margin-left: 20rem;*/
+    padding: 10px 12px;
+    border-radius: 1rem;
+}
