@@ -4,15 +4,18 @@ let chatContainer = document.getElementById('text_box1');
 let chatInput = document.getElementById('chat1');
 let title = document.getElementById('titulo1');
 let sendBtn = document.getElementById('enviar');
+let deleteBtn = document.getElementById('eliminar'); // Agregar botón de eliminar
 let messagesContainer = document.createElement('div'); // Crear contenedor dinámicamente
 messagesContainer.id = 'messagesContainer';
 document.body.appendChild(messagesContainer); // Agregar contenedor al DOM
 let messagesArray = [];
 
+// Mostrar el contenedor de chat
 openChatBtn.addEventListener('click', () => {
   chatContainer.style.display = 'block';
 });
 
+// Enviar mensaje y guardarlo en localStorage
 sendBtn.addEventListener('click', () => {
   let texto = chatInput.value.trim();
   let titulo = title.value.trim();
@@ -20,6 +23,7 @@ sendBtn.addEventListener('click', () => {
   if (texto !== '' && titulo !== '') {
     // Guardar en localStorage
     let messageData = {
+      id: int, // Agregar un identificador único
       title: titulo,
       message: texto
     };
@@ -30,6 +34,7 @@ sendBtn.addEventListener('click', () => {
     // Crear nuevo elemento y agregarlo al DOM
     let newMessageElement = document.createElement('section');
     newMessageElement.className = 'box2';
+    newMessageElement.setAttribute('data-id', messageData.id); // Establecer atributo de ID
 
     newMessageElement.innerHTML = `
       <div class="titulo2">
@@ -56,6 +61,7 @@ sendBtn.addEventListener('click', () => {
   }
 });
 
+// Ocultar el contenedor de chat al hacer clic fuera de él
 if (chatContainer) {
   chatContainer.addEventListener('click', (e) => {
     if (e.target === chatContainer) {
@@ -71,6 +77,7 @@ window.addEventListener('load', () => {
     messagesArray.forEach((messageData) => {
       let newMessageElement = document.createElement('section');
       newMessageElement.className = 'box2';
+      newMessageElement.setAttribute('data-id', messageData.id); // Establecer atributo de ID
 
       newMessageElement.innerHTML = `
         <div class="titulo2">
@@ -78,15 +85,13 @@ window.addEventListener('load', () => {
         </div>
 
         <div class="subox">
-
             <div class="text1">
-            <input class="check" type="checkbox">
+              <input class="check" type="checkbox">
             </div>
 
             <div class="text1">
-            <p>${messageData.message}</p>
+              <p>${messageData.message}</p>
             </div>
-            
         </div>
       `;
 
@@ -95,3 +100,18 @@ window.addEventListener('load', () => {
   }
 });
 
+// Eliminar mensajes seleccionados
+deleteBtn.addEventListener('click', () => {
+  let checkboxes = document.querySelectorAll('.check:checked');
+  checkboxes.forEach((checkbox) => {
+    let messageElement = checkbox.closest('.box2');
+    let messageId = parseInt(messageElement.getAttribute('data-id'));
+
+    // Eliminar del array y del localStorage
+    messagesArray = messagesArray.filter((message) => message.id !== messageId);
+    localStorage.setItem('messages', JSON.stringify(messagesArray));
+
+    // Eliminar del DOM
+    messagesContainer.removeChild(messageElement);
+  });
+});
