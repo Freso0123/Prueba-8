@@ -4,7 +4,7 @@
     --Naranga: #FFCDAF;
     --Azul_cl: #C5F6FF;
     --Amarillo: #FFF0B4;
-    --Naranga_ft: #F66A14;
+    --Naranga_ft: #f66b14b1;
 
 }
 
@@ -129,11 +129,15 @@ padding: .5rem;
     right: 20px;
 }
 
+.mas svg{
+    width: 1.5rem ;
+}
+
 .mas button{
     /*background-color: transparent;*/
     background-color: var(--Naranga_ft);
     /*width: 40px;*/
     /*margin-left: 20rem;*/
-    padding: 10px 12px;
+    padding: .5px 12px;
     border-radius: 1rem;
 }
