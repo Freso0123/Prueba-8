@@ -45,4 +45,5 @@
     background-color: var(--blanco);
     color: var(--Azul_ft);
     border: .5px solid var(--negro);
+    padding: 10px;
 }

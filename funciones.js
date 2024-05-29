@@ -8,7 +8,7 @@ let deleteBtn = document.getElementById('eliminar'); // Agregar botón de elimin
 let messagesContainer = document.createElement('div'); // Crear contenedor dinámicamente
 messagesContainer.id = 'messagesContainer';
 document.body.appendChild(messagesContainer); // Agregar contenedor al DOM
-let messagesArray = [];
+let messagesArray = JSON.parse(localStorage.getItem('messages')) || [];
 
 // Mostrar el contenedor de chat
 openChatBtn.addEventListener('click', () => {
@@ -42,12 +42,12 @@ sendBtn.addEventListener('click', () => {
       </div>
 
       <div class="subox">
-        <div class="text1">
-            <input class="check" type="checkbox">
+        <div class="text1" >
+            <input  class="check" type="checkbox" id="${titulo}">
         </div>
 
         <div class="text1">
-            <p>${texto}</p>
+            <label for="${titulo}">${texto}</label>
         </div>
       </div>
     `;
@@ -72,32 +72,32 @@ if (chatContainer) {
 
 // Cargar mensajes guardados en localStorage al cargar la página
 window.addEventListener('load', () => {
-  if (localStorage.getItem('messages')) {
-    messagesArray = JSON.parse(localStorage.getItem('messages'));
-    messagesArray.forEach((messageData) => {
-      let newMessageElement = document.createElement('section');
-      newMessageElement.className = 'box2';
-      newMessageElement.setAttribute('data-id', messageData.id); // Establecer atributo de ID
+  messagesArray.forEach((messageData) => {
+    let newMessageElement = document.createElement('section');
+    newMessageElement.className = 'box2';
+    newMessageElement.setAttribute('data-id', messageData.id); // Establecer atributo de ID
 
-      newMessageElement.innerHTML = `
-        <div class="titulo2">
-          <h2>${messageData.title}</h2>
-        </div>
+    newMessageElement.innerHTML = `
+      <div class="titulo2">
+        <h2>${messageData.title}</h2>
+      </div>
 
-        <div class="subox">
-            <div class="text1">
-              <input class="check" type="checkbox">
-            </div>
+      <div class="subox">
+          <div class="text1">
+            <input class="check" type="checkbox">
+          </div>
 
-            <div class="text1">
-              <p>${messageData.message}</p>
-            </div>
-        </div>
-      `;
+          <div class="text1">
+            <p>${messageData.message}</p>
+          </div>
+      </div>
+    `;
 
-      messagesContainer.appendChild(newMessageElement);
-    });
-  }
+    messagesContainer.appendChild(newMessageElement);
+  });
+
+  // Actualizar el contador de IDs
+  int = messagesArray.length > 0 ? Math.max(...messagesArray.map(msg => msg.id)) + 1 : 0;
 });
 
 // Eliminar mensajes seleccionados
@@ -115,3 +115,4 @@ deleteBtn.addEventListener('click', () => {
     messagesContainer.removeChild(messageElement);
   });
 });
+
